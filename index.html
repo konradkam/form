@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>10clouds Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/main.scss">
 </head>
 
 <body>
+    <div class="blob"></div>
     <article class="form">
         <header class="form__header">
             <h1 class="text-inverse">Your account</h1>
@@ -25,62 +26,75 @@
                     </ul>
                 </nav>
                 <form class="form__content">
-                    <fieldset></fieldset>
-                    <fieldset>
+                    <fieldset class="step-container">
+                    </fieldset>
+                    <fieldset class="step-container">
                         <legend class="form__intro">Provide personal information so that we can create a new account for you.</legend>
 
-                        <label for="input-name" class="form__label">Your name</label>
-                        <input type="text" id="input-name">
+                        <div class="form__name-container mb-25">
+                            <label for="input-name" class="form__label">Your name</label>
+                            <input type="text" id="input-name" class="form__name field">
+                        </div>
 
-                        <fieldset>
+                        <fieldset class="form__phone-container phone mb-25">
                             <legend class="form__label">Mobile</legend>
-                            <select name="prefix" id="prefix">
-                                <option selected="" disabled="" hidden="" style="display: none" value=""></option>
-                                <option value="+48">+48 (PL)</option>
-                                <option value="+44">+44 (UK)</option>
-                                <option value="+1">+1 (US)</option>
-                            </select>
-                            <input type="tel" id="input-mobile">
+                            <div class="flex">
+                                <select name="prefix" class="phone__prefix field">
+                                    <option selected="" disabled="" hidden="" style="display: none" value=""></option>
+                                    <option value="+48">+48 (PL)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+1">+1 (US)</option>
+                                </select>
+                                <input type="tel" class="phone__number" maxlength="9">
+                            </div>
                         </fieldset>
-                        <fieldset class="square-radio">
-                            <legend class="form__label">Can you play chess?</legend>
+                        <fieldset class="square-radios mb-25">
+                            <legend class="form__label mb-10">Can you play chess?</legend>
                             <label for="radio1">
-                                <input type="radio" id="radio1" name="chess">
-                                <div class="square-radio__box">
-                                    <span class="square-radio__copy">Yes</span>
+                                <input type="radio" id="radio1" class="field" name="chess">
+                                <div class="square-radios__box">
+                                    <span class="square-radios__copy">Yes</span>
                                 </div>
                             </label>
                             <label for="radio2">
                                 <input type="radio" id="radio2" name="chess">
-                                <div class="square-radio__box">
-                                    <span class="square-radio__copy">No</span>
+                                <div class="square-radios__box">
+                                    <span class="square-radios__copy">No</span>
                                 </div>
                             </label>
                         </fieldset>
-                        <fieldset>
-                            <legend class="form__label">Date of birth</legend>
-                            <input type="text" id="input-name">
-                            <select name="month" id="month">
-                                <option selected="" disabled="" hidden="" style="display: none" value=""></option>
-                                <option value="january">January</option>
-                                <option value="february">February</option>
-                                <option value="march">March</option>
-                                <option value="april">April</option>
-                                <option value="may">May</option>
-                                <option value="june">June</option>
-                                <option value="july">July</option>
-                                <option value="august">August</option>
-                                <option value="september">September</option>
-                                <option value="october">October</option>
-                                <option value="november">November</option>
-                                <option value="december">December</option>
-                              </select>
-                            </select>
-                            <input type="text" id="input-name">
+                        <fieldset class="form__date-container date">
+                            <legend class="form__label mb-10">Date of birth</legend>
+                            <div class="flex align-items-center">
+                                <input type="text" class="date__day field field--all-borders" maxlength="2">
+                                <span class="line"></span>
+                                <select name="month" class="date__month field field--all-borders">
+                                    <option selected="" disabled="" hidden="" style="display: none" value=""></option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                </select>
+                                <span class="line"></span>
+                                <select name="year" class="date__year field field--all-borders">
+                                    <option selected="" disabled="" hidden="" style="display: none" value=""></option>
+                                    <option value="january">1920</option>
+                                </select>
+                            </div>
                         </fieldset>
                     </fieldset>
-                    <fieldset></fieldset>
+                    <fieldset class="step-container">
+                    </fieldset>
                 </form>
+                <button class="btn btn--arrow form-button">continue</button>
             </div>
         </section>
     </article>
