@@ -20,23 +20,23 @@
             <div class="form__block">
                 <nav class="form__navigation">
                     <ul>
-                        <li>01</li>
-                        <li class="active">02<br>Personal</li>
-                        <li>03</li>
+                        <li data-target="1">01</li>
+                        <li data-target="2">02<br>Personal</li>
+                        <li data-target="3">03</li>
                     </ul>
                 </nav>
                 <form class="form__content">
-                    <fieldset class="step-container">
+                    <fieldset class="step-container" data-step="1">
                     </fieldset>
-                    <fieldset class="step-container">
+                    <fieldset class="step-container" data-step="2">
                         <legend class="form__intro">Provide personal information so that we can create a new account for you.</legend>
 
-                        <div class="form__name-container mb-25">
+                        <div class="form__row form__name-container mb-25">
                             <label for="input-name" class="form__label">Your name</label>
                             <input type="text" id="input-name" class="form__name field">
                         </div>
 
-                        <fieldset class="form__phone-container phone mb-25">
+                        <fieldset class="form__row form__phone-container phone mb-25">
                             <legend class="form__label">Mobile</legend>
                             <div class="flex">
                                 <select name="prefix" class="phone__prefix field">
@@ -45,53 +45,43 @@
                                     <option value="+44">+44 (UK)</option>
                                     <option value="+1">+1 (US)</option>
                                 </select>
-                                <input type="tel" class="phone__number" maxlength="9">
+                                <input type="tel" name="phone" class="phone__number" maxlength="9">
                             </div>
                         </fieldset>
-                        <fieldset class="square-radios mb-25">
+                        <fieldset class="form__row mb-25">
                             <legend class="form__label mb-10">Can you play chess?</legend>
-                            <label for="radio1">
-                                <input type="radio" id="radio1" class="field" name="chess">
-                                <div class="square-radios__box">
-                                    <span class="square-radios__copy">Yes</span>
-                                </div>
-                            </label>
-                            <label for="radio2">
-                                <input type="radio" id="radio2" name="chess">
-                                <div class="square-radios__box">
-                                    <span class="square-radios__copy">No</span>
-                                </div>
-                            </label>
+                            <div class="form__chess square-radios">
+                                <label for="radio1">
+                                    <input type="radio" id="radio1" class="field" name="chess">
+                                    <div class="square-radios__box">
+                                        <span class="square-radios__copy">Yes</span>
+                                    </div>
+                                </label>
+                                <label for="radio2">
+                                    <input type="radio" id="radio2" name="chess">
+                                    <div class="square-radios__box">
+                                        <span class="square-radios__copy">No</span>
+                                    </div>
+                                </label>
+                            </div>
+
                         </fieldset>
-                        <fieldset class="form__date-container date">
+                        <fieldset class="form__row date">
                             <legend class="form__label mb-10">Date of birth</legend>
-                            <div class="flex align-items-center">
-                                <input type="text" class="date__day field field--all-borders" maxlength="2">
+                            <div class="form__date flex align-items-center">
+                                <input type="text" name="day" class="date__day field field--all-borders" maxlength="2">
                                 <span class="line"></span>
                                 <select name="month" class="date__month field field--all-borders">
                                     <option selected="" disabled="" hidden="" style="display: none" value=""></option>
-                                    <option value="january">January</option>
-                                    <option value="february">February</option>
-                                    <option value="march">March</option>
-                                    <option value="april">April</option>
-                                    <option value="may">May</option>
-                                    <option value="june">June</option>
-                                    <option value="july">July</option>
-                                    <option value="august">August</option>
-                                    <option value="september">September</option>
-                                    <option value="october">October</option>
-                                    <option value="november">November</option>
-                                    <option value="december">December</option>
                                 </select>
                                 <span class="line"></span>
                                 <select name="year" class="date__year field field--all-borders">
                                     <option selected="" disabled="" hidden="" style="display: none" value=""></option>
-                                    <option value="january">1920</option>
                                 </select>
                             </div>
                         </fieldset>
                     </fieldset>
-                    <fieldset class="step-container">
+                    <fieldset class="step-container" data-step="3">
                     </fieldset>
                 </form>
                 <button class="btn btn--arrow form-button">continue</button>
