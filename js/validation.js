@@ -10,6 +10,7 @@ export default (() => {
         day: '',
         month: 'Select month',
         year: 'Select year',
+        age: 'You must be at least 18 years old',
         default: 'Invalid data'
     }
 
@@ -100,9 +101,32 @@ export default (() => {
         const day = validateDay(dayEl, monthEl.value, yearEl.value);
         const month = validateMonth(monthEl);
         const year = validateYear(yearEl);
+        const fullDate = createDate(dayEl.value, monthEl.value, yearEl.value);
+        console.log('fullDate', fullDate)
 
-        return day && month && year;
+        return day && month && year && validateAge(fullDate, dayEl);
     }
+
+    function createDate(day, month, year) {
+        const monthNumber = typeof month === 'string' ? formData.monthsNumbers[month] : month;
+        const chosenMonth = monthNumber || new Date().getMonth();
+        const chosenYear = year || new Date().getFullYear();
+        const date = new Date(chosenYear, chosenMonth, day);
+        return date;
+    }
+
+    function validateAge(date, el) {
+        const diff = Date.now() - date.getTime();
+        const ageDate = new Date(diff);
+        const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+        if(age >= 18) return true;
+
+        showWarning(el, message.age);
+
+        return false;
+    }
+
 
     function validateDay(el, month, year) {
         const chosenMonth = month || new Date().getMonth();

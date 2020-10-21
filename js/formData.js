@@ -26,6 +26,8 @@ export default (() => {
             years.push(firstYear + i);
         }
 
+        years.reverse();
+
         return years;
     }
 
