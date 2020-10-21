@@ -1,0 +1,259 @@
+::selection {
+    color: $bright;
+    background: $primary-dark;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    padding-top: 56px;
+    background-color: $dark;
+    font-family: $font-family;
+}
+
+.blob {
+    position: absolute;
+    z-index: -1;
+    top: -190px;
+    left: -280px;
+    width: 929px;
+    height: 828px;
+    background-image: url(../img/blob.svg);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 929px 828px;
+}
+
+%heading {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-family: $font-family;
+    font-weight: $light-weight;
+    line-height: 1;
+    color: $text;
+}
+
+h1 {
+    @extend %heading;
+    font-size: 36px;
+
+    @media (min-width: $md) {
+        font-size: 48px;
+    }
+}
+
+h2 {
+    @extend %heading;
+    font-size: 28px;
+}
+
+h3 {
+    @extend %heading;
+    font-size: 21px;
+}
+
+h4 {
+    @extend %heading;
+    font-size: 18px;
+}
+
+h5 {
+    @extend %heading;
+    font-size: 16px;
+}
+
+h6 {
+    @extend %heading;
+    font-size: 14px;
+}
+
+%text {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-family: $font-family;
+    font-weight: $medium-weight;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+    color: $text;
+}
+
+p {
+    @extend %text;
+    font-size: $main-font-size;
+}
+
+.text-inverse {
+    color: $bright;
+}
+
+.btn {
+    position: relative;
+    padding: 15px;
+    background: linear-gradient(90deg, $primary-bright 0%, $primary-dark 100%);
+    box-shadow: 0px 20px 25px rgba(32, 31, 54, 0.15);
+    border: none;
+    font-size: 12px;
+    font-family: $font-family;
+    font-weight: $strong-weight;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: $bright;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(-90deg, $primary-bright 0%, $primary-dark 100%);
+        opacity: 0;
+        transition: all 0.25s ease-in-out;
+        z-index: -1;
+    }
+
+    &:focus,
+    &:active {
+        outline: none;
+        // border: 1px solid $bright;
+        box-shadow: 0px 20px 25px rgba(32, 31, 54, 0.15), inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+
+        &::before {
+            box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+        }
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+input,
+select {
+    border: none;
+    outline: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    width: 0
+}
+
+input,
+select,
+.field {
+    @extend %text;
+    margin: 0;
+    padding: 13px 15px;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid $primary-faded;
+
+    font-size: 16px;
+    font-weight: $medium-weight;
+    line-height: 1;
+
+    transition: border .25s ease-in-out;
+
+    &:focus {
+        border-color: $primary-dark;
+    }
+
+    &--all-borders {
+        border: 2px solid $primary-faded;
+    }
+}
+
+.square-radios {
+    $this: &;
+
+    display: flex;
+
+    input {
+        display: none;
+    }
+
+    label {
+        position: relative;
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+
+        @media (min-width: $md) {
+            margin-right: 25px;
+        }
+    }
+
+    &__box {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border: 2px solid $primary-faded;
+        transition: border 0.25s ease-in-out;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 10;
+            top: 50%;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            transform: translate(50%, -50%);
+            background-color: #f2f3f5;
+            border: 2px solid $primary-faded;
+            transition: border 0.25s ease-in-out;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 20;
+            top: 50%;
+            right: 0;
+            width: 3px;
+            height: 3px;
+            transform: translate(50%, -50%);
+            background-color: $secondary;
+            opacity: 0;
+            transition: opacity 0.25s ease-in-out 0.15s;
+        }
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 8px;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+    }
+
+    input:checked+&__box {
+        border: 2px solid $secondary;
+
+        &::before {
+            border: 2px solid $secondary;
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+}

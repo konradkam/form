@@ -20,6 +20,7 @@
   "homepage": "https://github.com/konradkam/form#readme",
   "devDependencies": {
     "@babel/core": "^7.12.1",
-    "@babel/preset-env": "^7.12.1"
+    "@babel/preset-env": "^7.12.1",
+    "sass": "^1.27.0"
   }
 }
