@@ -1,5 +1,5 @@
 .form {
-    margin: 0 auto;
+    margin: 0 auto 50px;
     max-width: 470px;
 
     @media (min-width: $lg) {
@@ -208,6 +208,11 @@
             margin: 0 6px;
             background-color: $primary-faded;
             flex: 0 0 auto;
+            display: none;
+
+            @media (min-width: $md) {
+                display: block;
+            }
         }
     }
 

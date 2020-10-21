@@ -15,18 +15,28 @@ body {
     font-family: $font-family;
 }
 
-.blob {
+.background {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     z-index: -1;
-    top: -190px;
-    left: -280px;
-    width: 929px;
-    height: 828px;
-    background-image: url(../img/blob.svg);
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: 929px 828px;
+
+    &__blob {
+        position: absolute;
+        top: -190px;
+        left: -280px;
+        width: 929px;
+        height: 828px;
+        background-image: url(../img/blob.svg);
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: 929px 828px;
+    }
 }
+
 
 %heading {
     margin-top: 0;

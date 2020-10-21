@@ -66,11 +66,17 @@ export default (() => {
     }
 
     function validatePhoneNumber(el) {
-        if(el.value.length === 9) return true;
+        const reg = new RegExp('^[0-9]+$');
+
+        if(el.value.length === 9 && isNumber(el.value)) return true;
         showWarning(el, message.default);
 
         return false;
     }
+
+    function isNumber(string) {
+        return /^\s*[-+]?((\d+(\.\d+)?)|(\d+\.)|(\.\d+))(e[-+]?\d+)?\s*$/.test(string);
+    };
 
     function validateChess(el) {
         const radios = [...document.querySelectorAll('input[name="chess"]')];
